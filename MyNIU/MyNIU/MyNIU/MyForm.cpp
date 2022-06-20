@@ -9,3 +9,5 @@ void main(array<String^>^ args)
 	MyNIU::MyForm MyForm;
 	Application::Run(% MyForm);
 }
+
+//array<String^>^ args

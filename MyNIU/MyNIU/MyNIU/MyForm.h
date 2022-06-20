@@ -6,19 +6,32 @@ int experiance_judge = 0;
 int level = 1;
 int MAXHt = 50;
 int yut = 0;
+int boss_hp = 600;
 //[0]吳信德老師招式
 //[1]吳汶捐老師招式
 //[2]彭老師招式
 //[3]陳翊文
 //[4]朱志明老師招式
 //[5]朱志明老師招式
-std::string skil[5][5] = { 
+
+std::string skil[5][5] = {
 	{"什麼都沒做"},
 	{"zuvio點名","zuvio上傳練習畫面","教coffee(柴柴)握手好乖","coffee(柴柴)咬他"},
 	{"殺球","點名","把你當掉","講故事","看球賽"},
 	{"去接女兒","抓你抄襲","把你當掉","今天的人怎麼這麼少","你寫的程式碼很爛"},
 	{"我要錄影","叫舍監來","嘔......","我想跟妹子聊天","電玩成影"}
 };
+
+
+
+
+/*
+std::string boss[5][5] = {
+	{"2","600","30","50","20"},{""}
+};
+*/
+
+
 int blood;
 int attack;
 int defend;
@@ -119,9 +132,9 @@ namespace MyNIU {
 	private: System::Windows::Forms::TextBox^ textBox15;
 	private: System::Windows::Forms::Button^ button10;
 	private: System::Windows::Forms::Button^ button11;
-	private: System::Windows::Forms::TextBox^ textBox23;
-	private: System::Windows::Forms::TextBox^ textBox20;
-	private: System::Windows::Forms::TextBox^ textBox21;
+
+
+
 	private: System::Windows::Forms::TextBox^ textBox22;
 	private: System::Windows::Forms::TextBox^ textBox18;
 	private: System::Windows::Forms::TextBox^ textBox19;
@@ -134,9 +147,36 @@ namespace MyNIU {
 	private: System::Windows::Forms::ContextMenuStrip^ contextMenuStrip3;
 	private: System::Windows::Forms::TextBox^ textBox16;
 	private: System::Windows::Forms::TextBox^ textBox24;
-	private: System::Windows::Forms::TextBox^ textBox25;
-	private: System::Windows::Forms::TextBox^ textBox26;
-	private: System::Windows::Forms::TextBox^ textBox27;
+
+
+
+	private: System::Windows::Forms::TextBox^ textBox28;
+	private: System::Windows::Forms::TextBox^ textBox29;
+
+
+
+private: System::Windows::Forms::TextBox^ textBox33;
+
+
+private: System::Windows::Forms::Button^ button13;
+
+private: System::Windows::Forms::Timer^ timer1;
+
+private: System::Windows::Forms::ListBox^ listBox1;
+private: System::Windows::Forms::Button^ button12;
+private: System::Windows::Forms::TextBox^ textBox21;
+private: System::Windows::Forms::TextBox^ textBox20;
+private: System::Windows::Forms::TextBox^ textBox23;
+private: System::Windows::Forms::TextBox^ textBox25;
+private: System::Windows::Forms::TextBox^ textBox26;
+private: System::Windows::Forms::TextBox^ textBox27;
+private: System::Windows::Forms::TextBox^ textBox30;
+private: System::Windows::Forms::TextBox^ textBox31;
+private: System::Windows::Forms::TextBox^ textBox32;
+
+
+
+
 
 
 
@@ -323,9 +363,6 @@ namespace MyNIU {
 			this->textBox15 = (gcnew System::Windows::Forms::TextBox());
 			this->button10 = (gcnew System::Windows::Forms::Button());
 			this->button11 = (gcnew System::Windows::Forms::Button());
-			this->textBox23 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox20 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox21 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox22 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox18 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox19 = (gcnew System::Windows::Forms::TextBox());
@@ -335,10 +372,23 @@ namespace MyNIU {
 			this->pictureBox8 = (gcnew System::Windows::Forms::PictureBox());
 			this->textBox16 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox24 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox25 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox26 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox27 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox28 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox29 = (gcnew System::Windows::Forms::TextBox());
 			this->contextMenuStrip3 = (gcnew System::Windows::Forms::ContextMenuStrip(this->components));
+			this->textBox33 = (gcnew System::Windows::Forms::TextBox());
+			this->button13 = (gcnew System::Windows::Forms::Button());
+			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
+			this->listBox1 = (gcnew System::Windows::Forms::ListBox());
+			this->button12 = (gcnew System::Windows::Forms::Button());
+			this->textBox30 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox25 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox21 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox31 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox26 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox20 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox32 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox27 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox23 = (gcnew System::Windows::Forms::TextBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->tableLayoutPanel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox6))->BeginInit();
@@ -415,7 +465,7 @@ namespace MyNIU {
 			this->tableLayoutPanel1->Controls->Add(this->button3, 2, 2);
 			this->tableLayoutPanel1->Controls->Add(this->button4, 3, 2);
 			this->tableLayoutPanel1->Controls->Add(this->label4, 0, 1);
-			this->tableLayoutPanel1->Location = System::Drawing::Point(88, 86);
+			this->tableLayoutPanel1->Location = System::Drawing::Point(35, 90);
 			this->tableLayoutPanel1->Name = L"tableLayoutPanel1";
 			this->tableLayoutPanel1->RowCount = 3;
 			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
@@ -800,7 +850,7 @@ namespace MyNIU {
 			this->Role->ColumnCount = 3;
 			this->Role->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute, 101)));
 			this->Role->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute, 355)));
-			this->Role->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute, 354)));
+			this->Role->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute, 413)));
 			this->Role->Controls->Add(this->textBox4, 0, 2);
 			this->Role->Controls->Add(this->textBox1, 0, 0);
 			this->Role->Controls->Add(this->textBox3, 0, 1);
@@ -906,7 +956,7 @@ namespace MyNIU {
 			this->button8->Font = (gcnew System::Drawing::Font(L"新細明體", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(136)));
 			this->button8->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->button8->Location = System::Drawing::Point(-36, 3550);
+			this->button8->Location = System::Drawing::Point(-391, 5755);
 			this->button8->Name = L"button8";
 			this->button8->Size = System::Drawing::Size(126, 51);
 			this->button8->TabIndex = 23;
@@ -921,7 +971,7 @@ namespace MyNIU {
 			this->button9->Font = (gcnew System::Drawing::Font(L"新細明體", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(136)));
 			this->button9->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->button9->Location = System::Drawing::Point(114, 3550);
+			this->button9->Location = System::Drawing::Point(-241, 5755);
 			this->button9->Name = L"button9";
 			this->button9->Size = System::Drawing::Size(91, 51);
 			this->button9->TabIndex = 24;
@@ -936,7 +986,7 @@ namespace MyNIU {
 			this->textBox15->Font = (gcnew System::Drawing::Font(L"新細明體", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(136)));
 			this->textBox15->ForeColor = System::Drawing::SystemColors::MenuBar;
-			this->textBox15->Location = System::Drawing::Point(122, 532);
+			this->textBox15->Location = System::Drawing::Point(121, 528);
 			this->textBox15->Multiline = true;
 			this->textBox15->Name = L"textBox15";
 			this->textBox15->Size = System::Drawing::Size(734, 50);
@@ -974,51 +1024,6 @@ namespace MyNIU {
 			this->button11->Visible = false;
 			this->button11->Click += gcnew System::EventHandler(this, &MyForm::button11_Click_1);
 			// 
-			// textBox23
-			// 
-			this->textBox23->Anchor = System::Windows::Forms::AnchorStyles::None;
-			this->textBox23->BackColor = System::Drawing::SystemColors::InactiveCaptionText;
-			this->textBox23->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox23->Font = (gcnew System::Drawing::Font(L"新細明體", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(136)));
-			this->textBox23->ForeColor = System::Drawing::SystemColors::Window;
-			this->textBox23->Location = System::Drawing::Point(13, 405);
-			this->textBox23->Name = L"textBox23";
-			this->textBox23->Size = System::Drawing::Size(89, 23);
-			this->textBox23->TabIndex = 8;
-			this->textBox23->Text = L"智商";
-			this->textBox23->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
-			// 
-			// textBox20
-			// 
-			this->textBox20->Anchor = System::Windows::Forms::AnchorStyles::None;
-			this->textBox20->BackColor = System::Drawing::SystemColors::InactiveCaptionText;
-			this->textBox20->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox20->Font = (gcnew System::Drawing::Font(L"新細明體", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(136)));
-			this->textBox20->ForeColor = System::Drawing::SystemColors::Window;
-			this->textBox20->Location = System::Drawing::Point(13, 368);
-			this->textBox20->Name = L"textBox20";
-			this->textBox20->Size = System::Drawing::Size(89, 23);
-			this->textBox20->TabIndex = 4;
-			this->textBox20->Text = L"防禦力";
-			this->textBox20->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
-			// 
-			// textBox21
-			// 
-			this->textBox21->Anchor = System::Windows::Forms::AnchorStyles::None;
-			this->textBox21->BackColor = System::Drawing::SystemColors::InactiveCaptionText;
-			this->textBox21->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox21->Font = (gcnew System::Drawing::Font(L"新細明體", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(136)));
-			this->textBox21->ForeColor = System::Drawing::SystemColors::Window;
-			this->textBox21->Location = System::Drawing::Point(13, 331);
-			this->textBox21->Name = L"textBox21";
-			this->textBox21->Size = System::Drawing::Size(89, 23);
-			this->textBox21->TabIndex = 6;
-			this->textBox21->Text = L"攻擊力";
-			this->textBox21->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
-			// 
 			// textBox22
 			// 
 			this->textBox22->Anchor = System::Windows::Forms::AnchorStyles::None;
@@ -1027,7 +1032,7 @@ namespace MyNIU {
 			this->textBox22->Font = (gcnew System::Drawing::Font(L"新細明體", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(136)));
 			this->textBox22->ForeColor = System::Drawing::SystemColors::Window;
-			this->textBox22->Location = System::Drawing::Point(13, 294);
+			this->textBox22->Location = System::Drawing::Point(11, 248);
 			this->textBox22->Name = L"textBox22";
 			this->textBox22->Size = System::Drawing::Size(89, 23);
 			this->textBox22->TabIndex = 7;
@@ -1042,7 +1047,7 @@ namespace MyNIU {
 			this->textBox18->Font = (gcnew System::Drawing::Font(L"新細明體", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(136)));
 			this->textBox18->ForeColor = System::Drawing::SystemColors::Window;
-			this->textBox18->Location = System::Drawing::Point(13, 257);
+			this->textBox18->Location = System::Drawing::Point(11, 211);
 			this->textBox18->Name = L"textBox18";
 			this->textBox18->Size = System::Drawing::Size(89, 23);
 			this->textBox18->TabIndex = 5;
@@ -1057,10 +1062,10 @@ namespace MyNIU {
 			this->textBox19->Font = (gcnew System::Drawing::Font(L"新細明體", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(136)));
 			this->textBox19->ForeColor = System::Drawing::SystemColors::Window;
-			this->textBox19->Location = System::Drawing::Point(119, 5);
+			this->textBox19->Location = System::Drawing::Point(114, 5);
 			this->textBox19->Multiline = true;
 			this->textBox19->Name = L"textBox19";
-			this->textBox19->Size = System::Drawing::Size(314, 43);
+			this->textBox19->Size = System::Drawing::Size(298, 34);
 			this->textBox19->TabIndex = 3;
 			this->textBox19->Text = L"\r\n";
 			this->textBox19->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -1092,7 +1097,12 @@ namespace MyNIU {
 			this->tableLayoutPanel2->Controls->Add(this->textBox25, 1, 4);
 			this->tableLayoutPanel2->Controls->Add(this->textBox26, 1, 5);
 			this->tableLayoutPanel2->Controls->Add(this->textBox27, 1, 6);
-			this->tableLayoutPanel2->Location = System::Drawing::Point(122, 70);
+			this->tableLayoutPanel2->Controls->Add(this->textBox28, 2, 2);
+			this->tableLayoutPanel2->Controls->Add(this->textBox29, 2, 3);
+			this->tableLayoutPanel2->Controls->Add(this->textBox30, 2, 4);
+			this->tableLayoutPanel2->Controls->Add(this->textBox31, 2, 5);
+			this->tableLayoutPanel2->Controls->Add(this->textBox32, 2, 6);
+			this->tableLayoutPanel2->Location = System::Drawing::Point(121, 56);
 			this->tableLayoutPanel2->Name = L"tableLayoutPanel2";
 			this->tableLayoutPanel2->RowCount = 7;
 			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 20.3125F)));
@@ -1102,7 +1112,7 @@ namespace MyNIU {
 			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 35)));
 			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 35)));
 			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 35)));
-			this->tableLayoutPanel2->Size = System::Drawing::Size(761, 437);
+			this->tableLayoutPanel2->Size = System::Drawing::Size(724, 391);
 			this->tableLayoutPanel2->TabIndex = 29;
 			this->tableLayoutPanel2->Visible = false;
 			this->tableLayoutPanel2->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MyForm::tableLayoutPanel2_Paint);
@@ -1115,7 +1125,7 @@ namespace MyNIU {
 			this->textBox17->Font = (gcnew System::Drawing::Font(L"新細明體", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(136)));
 			this->textBox17->ForeColor = System::Drawing::SystemColors::Window;
-			this->textBox17->Location = System::Drawing::Point(498, 16);
+			this->textBox17->Location = System::Drawing::Point(469, 11);
 			this->textBox17->Multiline = true;
 			this->textBox17->Name = L"textBox17";
 			this->textBox17->Size = System::Drawing::Size(201, 21);
@@ -1127,9 +1137,9 @@ namespace MyNIU {
 			// pictureBox2
 			// 
 			this->pictureBox2->Cursor = System::Windows::Forms::Cursors::Cross;
-			this->pictureBox2->Location = System::Drawing::Point(119, 56);
+			this->pictureBox2->Location = System::Drawing::Point(114, 47);
 			this->pictureBox2->Name = L"pictureBox2";
-			this->pictureBox2->Size = System::Drawing::Size(314, 190);
+			this->pictureBox2->Size = System::Drawing::Size(298, 153);
 			this->pictureBox2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox2->TabIndex = 9;
 			this->pictureBox2->TabStop = false;
@@ -1137,9 +1147,9 @@ namespace MyNIU {
 			// pictureBox8
 			// 
 			this->pictureBox8->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox8.Image")));
-			this->pictureBox8->Location = System::Drawing::Point(441, 56);
+			this->pictureBox8->Location = System::Drawing::Point(420, 47);
 			this->pictureBox8->Name = L"pictureBox8";
-			this->pictureBox8->Size = System::Drawing::Size(314, 190);
+			this->pictureBox8->Size = System::Drawing::Size(299, 153);
 			this->pictureBox8->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox8->TabIndex = 10;
 			this->pictureBox8->TabStop = false;
@@ -1152,7 +1162,7 @@ namespace MyNIU {
 			this->textBox16->Font = (gcnew System::Drawing::Font(L"新細明體", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(136)));
 			this->textBox16->ForeColor = System::Drawing::SystemColors::Window;
-			this->textBox16->Location = System::Drawing::Point(231, 257);
+			this->textBox16->Location = System::Drawing::Point(218, 211);
 			this->textBox16->Name = L"textBox16";
 			this->textBox16->Size = System::Drawing::Size(89, 23);
 			this->textBox16->TabIndex = 11;
@@ -1166,11 +1176,130 @@ namespace MyNIU {
 			this->textBox24->Font = (gcnew System::Drawing::Font(L"新細明體", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(136)));
 			this->textBox24->ForeColor = System::Drawing::SystemColors::Window;
-			this->textBox24->Location = System::Drawing::Point(231, 294);
+			this->textBox24->Location = System::Drawing::Point(218, 248);
 			this->textBox24->Name = L"textBox24";
 			this->textBox24->Size = System::Drawing::Size(89, 23);
 			this->textBox24->TabIndex = 11;
 			this->textBox24->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			// 
+			// textBox28
+			// 
+			this->textBox28->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->textBox28->BackColor = System::Drawing::SystemColors::InactiveCaptionText;
+			this->textBox28->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox28->Font = (gcnew System::Drawing::Font(L"新細明體", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(136)));
+			this->textBox28->ForeColor = System::Drawing::SystemColors::Window;
+			this->textBox28->Location = System::Drawing::Point(525, 211);
+			this->textBox28->Name = L"textBox28";
+			this->textBox28->Size = System::Drawing::Size(89, 23);
+			this->textBox28->TabIndex = 12;
+			this->textBox28->Text = L"2";
+			this->textBox28->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->textBox28->Visible = false;
+			// 
+			// textBox29
+			// 
+			this->textBox29->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->textBox29->BackColor = System::Drawing::SystemColors::InactiveCaptionText;
+			this->textBox29->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox29->Font = (gcnew System::Drawing::Font(L"新細明體", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(136)));
+			this->textBox29->ForeColor = System::Drawing::SystemColors::Window;
+			this->textBox29->Location = System::Drawing::Point(525, 248);
+			this->textBox29->Name = L"textBox29";
+			this->textBox29->Size = System::Drawing::Size(89, 23);
+			this->textBox29->TabIndex = 12;
+			this->textBox29->Text = L"600";
+			this->textBox29->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->textBox29->Visible = false;
+			// 
+			// contextMenuStrip3
+			// 
+			this->contextMenuStrip3->Name = L"contextMenuStrip3";
+			this->contextMenuStrip3->Size = System::Drawing::Size(61, 4);
+			// 
+			// textBox33
+			// 
+			this->textBox33->AcceptsReturn = true;
+			this->textBox33->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->textBox33->BackColor = System::Drawing::SystemColors::MenuText;
+			this->textBox33->Font = (gcnew System::Drawing::Font(L"新細明體", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(136)));
+			this->textBox33->ForeColor = System::Drawing::SystemColors::MenuBar;
+			this->textBox33->Location = System::Drawing::Point(-5, 1339);
+			this->textBox33->Multiline = true;
+			this->textBox33->Name = L"textBox33";
+			this->textBox33->Size = System::Drawing::Size(734, 50);
+			this->textBox33->TabIndex = 33;
+			this->textBox33->Text = L"行動紀錄";
+			this->textBox33->Visible = false;
+			// 
+			// button13
+			// 
+			this->button13->BackColor = System::Drawing::SystemColors::AppWorkspace;
+			this->button13->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button13->Font = (gcnew System::Drawing::Font(L"新細明體", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(136)));
+			this->button13->Location = System::Drawing::Point(304, 482);
+			this->button13->Name = L"button13";
+			this->button13->Size = System::Drawing::Size(339, 53);
+			this->button13->TabIndex = 32;
+			this->button13->Text = L"挑戰!!!";
+			this->button13->UseVisualStyleBackColor = false;
+			this->button13->Visible = false;
+			this->button13->Click += gcnew System::EventHandler(this, &MyForm::button13_Click);
+			// 
+			// timer1
+			// 
+			this->timer1->Interval = 1000;
+			this->timer1->Tick += gcnew System::EventHandler(this, &MyForm::timer1_Tick);
+			// 
+			// listBox1
+			// 
+			this->listBox1->BackColor = System::Drawing::SystemColors::InfoText;
+			this->listBox1->Font = (gcnew System::Drawing::Font(L"新細明體", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(136)));
+			this->listBox1->ForeColor = System::Drawing::SystemColors::Window;
+			this->listBox1->FormattingEnabled = true;
+			this->listBox1->ItemHeight = 19;
+			this->listBox1->Items->AddRange(gcnew cli::array< System::Object^  >(1) { L"戰鬥紀錄：" });
+			this->listBox1->Location = System::Drawing::Point(133, 541);
+			this->listBox1->Name = L"listBox1";
+			this->listBox1->ScrollAlwaysVisible = true;
+			this->listBox1->Size = System::Drawing::Size(757, 137);
+			this->listBox1->TabIndex = 35;
+			this->listBox1->Visible = false;
+			// 
+			// button12
+			// 
+			this->button12->BackColor = System::Drawing::SystemColors::AppWorkspace;
+			this->button12->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button12->Font = (gcnew System::Drawing::Font(L"新細明體", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(136)));
+			this->button12->Location = System::Drawing::Point(716, 578);
+			this->button12->Name = L"button12";
+			this->button12->Size = System::Drawing::Size(339, 213);
+			this->button12->TabIndex = 36;
+			this->button12->Text = L"挑戰!!!";
+			this->button12->UseVisualStyleBackColor = false;
+			this->button12->Visible = false;
+			// 
+			// textBox30
+			// 
+			this->textBox30->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->textBox30->BackColor = System::Drawing::SystemColors::InactiveCaptionText;
+			this->textBox30->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox30->Font = (gcnew System::Drawing::Font(L"新細明體", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(136)));
+			this->textBox30->ForeColor = System::Drawing::SystemColors::Window;
+			this->textBox30->Location = System::Drawing::Point(525, 285);
+			this->textBox30->Name = L"textBox30";
+			this->textBox30->Size = System::Drawing::Size(89, 23);
+			this->textBox30->TabIndex = 12;
+			this->textBox30->Text = L"30";
+			this->textBox30->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->textBox30->Visible = false;
 			// 
 			// textBox25
 			// 
@@ -1180,11 +1309,42 @@ namespace MyNIU {
 			this->textBox25->Font = (gcnew System::Drawing::Font(L"新細明體", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(136)));
 			this->textBox25->ForeColor = System::Drawing::SystemColors::Window;
-			this->textBox25->Location = System::Drawing::Point(231, 331);
+			this->textBox25->Location = System::Drawing::Point(218, 285);
 			this->textBox25->Name = L"textBox25";
 			this->textBox25->Size = System::Drawing::Size(89, 23);
 			this->textBox25->TabIndex = 11;
 			this->textBox25->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			// 
+			// textBox21
+			// 
+			this->textBox21->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->textBox21->BackColor = System::Drawing::SystemColors::InactiveCaptionText;
+			this->textBox21->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox21->Font = (gcnew System::Drawing::Font(L"新細明體", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(136)));
+			this->textBox21->ForeColor = System::Drawing::SystemColors::Window;
+			this->textBox21->Location = System::Drawing::Point(11, 285);
+			this->textBox21->Name = L"textBox21";
+			this->textBox21->Size = System::Drawing::Size(89, 23);
+			this->textBox21->TabIndex = 6;
+			this->textBox21->Text = L"攻擊力";
+			this->textBox21->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			// 
+			// textBox31
+			// 
+			this->textBox31->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->textBox31->BackColor = System::Drawing::SystemColors::InactiveCaptionText;
+			this->textBox31->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox31->Font = (gcnew System::Drawing::Font(L"新細明體", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(136)));
+			this->textBox31->ForeColor = System::Drawing::SystemColors::Window;
+			this->textBox31->Location = System::Drawing::Point(525, 322);
+			this->textBox31->Name = L"textBox31";
+			this->textBox31->Size = System::Drawing::Size(89, 23);
+			this->textBox31->TabIndex = 12;
+			this->textBox31->Text = L"50";
+			this->textBox31->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->textBox31->Visible = false;
 			// 
 			// textBox26
 			// 
@@ -1194,11 +1354,42 @@ namespace MyNIU {
 			this->textBox26->Font = (gcnew System::Drawing::Font(L"新細明體", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(136)));
 			this->textBox26->ForeColor = System::Drawing::SystemColors::Window;
-			this->textBox26->Location = System::Drawing::Point(231, 368);
+			this->textBox26->Location = System::Drawing::Point(218, 322);
 			this->textBox26->Name = L"textBox26";
 			this->textBox26->Size = System::Drawing::Size(89, 23);
 			this->textBox26->TabIndex = 11;
 			this->textBox26->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			// 
+			// textBox20
+			// 
+			this->textBox20->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->textBox20->BackColor = System::Drawing::SystemColors::InactiveCaptionText;
+			this->textBox20->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox20->Font = (gcnew System::Drawing::Font(L"新細明體", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(136)));
+			this->textBox20->ForeColor = System::Drawing::SystemColors::Window;
+			this->textBox20->Location = System::Drawing::Point(11, 322);
+			this->textBox20->Name = L"textBox20";
+			this->textBox20->Size = System::Drawing::Size(89, 23);
+			this->textBox20->TabIndex = 4;
+			this->textBox20->Text = L"防禦力";
+			this->textBox20->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			// 
+			// textBox32
+			// 
+			this->textBox32->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->textBox32->BackColor = System::Drawing::SystemColors::InactiveCaptionText;
+			this->textBox32->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox32->Font = (gcnew System::Drawing::Font(L"新細明體", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(136)));
+			this->textBox32->ForeColor = System::Drawing::SystemColors::Window;
+			this->textBox32->Location = System::Drawing::Point(525, 359);
+			this->textBox32->Name = L"textBox32";
+			this->textBox32->Size = System::Drawing::Size(89, 23);
+			this->textBox32->TabIndex = 12;
+			this->textBox32->Text = L"20";
+			this->textBox32->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->textBox32->Visible = false;
 			// 
 			// textBox27
 			// 
@@ -1208,16 +1399,26 @@ namespace MyNIU {
 			this->textBox27->Font = (gcnew System::Drawing::Font(L"新細明體", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(136)));
 			this->textBox27->ForeColor = System::Drawing::SystemColors::Window;
-			this->textBox27->Location = System::Drawing::Point(231, 405);
+			this->textBox27->Location = System::Drawing::Point(218, 359);
 			this->textBox27->Name = L"textBox27";
 			this->textBox27->Size = System::Drawing::Size(89, 23);
 			this->textBox27->TabIndex = 11;
 			this->textBox27->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
-			// contextMenuStrip3
+			// textBox23
 			// 
-			this->contextMenuStrip3->Name = L"contextMenuStrip3";
-			this->contextMenuStrip3->Size = System::Drawing::Size(61, 4);
+			this->textBox23->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->textBox23->BackColor = System::Drawing::SystemColors::InactiveCaptionText;
+			this->textBox23->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox23->Font = (gcnew System::Drawing::Font(L"新細明體", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(136)));
+			this->textBox23->ForeColor = System::Drawing::SystemColors::Window;
+			this->textBox23->Location = System::Drawing::Point(11, 359);
+			this->textBox23->Name = L"textBox23";
+			this->textBox23->Size = System::Drawing::Size(89, 23);
+			this->textBox23->TabIndex = 8;
+			this->textBox23->Text = L"智商";
+			this->textBox23->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// MyForm
 			// 
@@ -1225,8 +1426,12 @@ namespace MyNIU {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->AutoScroll = true;
 			this->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->ClientSize = System::Drawing::Size(1034, 613);
+			this->ClientSize = System::Drawing::Size(1130, 613);
+			this->Controls->Add(this->button12);
+			this->Controls->Add(this->listBox1);
 			this->Controls->Add(this->tableLayoutPanel2);
+			this->Controls->Add(this->button13);
+			this->Controls->Add(this->textBox33);
 			this->Controls->Add(this->button11);
 			this->Controls->Add(this->button10);
 			this->Controls->Add(this->textBox15);
@@ -1488,6 +1693,13 @@ private: System::Void button10_Click(System::Object^ sender, System::EventArgs^ 
 private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void button10_Click_1(System::Object^ sender, System::EventArgs^ e) {
+	button13->Visible = false;
+	textBox28->Visible = false;
+	textBox29->Visible = false;
+	textBox30->Visible = false;
+	textBox31->Visible = false;
+	textBox32->Visible = false;
+	textBox33->Visible = false;
 	Role->Visible = true;
 	pictureBox7->Visible = true;
 	button5->Visible = true;
@@ -1497,6 +1709,13 @@ private: System::Void button10_Click_1(System::Object^ sender, System::EventArgs
 	tableLayoutPanel2->Visible = false;
 }
 private: System::Void button11_Click_1(System::Object^ sender, System::EventArgs^ e) {
+	button13->Visible = true;
+	textBox33->Visible = true;
+	textBox28->Visible = true;
+	textBox29->Visible = true;
+	textBox30->Visible = true;
+	textBox31->Visible = true;
+	textBox32->Visible = true;
 	textBox16->Text = level.ToString();
 	textBox24->Text = blood.ToString();
 	textBox25->Text = attack.ToString();
@@ -1509,6 +1728,7 @@ private: System::Void button11_Click_1(System::Object^ sender, System::EventArgs
 	button7->Visible = false;
 	textBox15->Visible = false;
 	tableLayoutPanel2->Visible = true;
+	MessageBox::Show("先發100顆球，發完加分!!!");
 	if (yut == 1) {
 		textBox19->Text = "帥隆";
 		pictureBox2->ImageLocation = "./image/6722.jpg";
@@ -1533,6 +1753,42 @@ private: System::Void textBox17_TextChanged_1(System::Object^ sender, System::Ev
 private: System::Void tableLayoutPanel2_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 }
 private: System::Void textBox19_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void button12_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void button13_Click(System::Object^ sender, System::EventArgs^ e) {
+	listBox1->Visible = true;
+	//MAXHt = 40;
+	timer1->Enabled = true;
+	//button13.left ++;
+}
+
+private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) {
+	if (boss_hp < 0) {
+		timer1->Enabled = false;
+	}
+	MAXHt += 19;
+	textBox33->Height = MAXHt;
+
+	boss_hp -= 100;
+	textBox33->Text += "\r\n微笑殺手使出";
+	int rd = rand() % 4;
+	std::string str = skil[1][rd];
+	String^ str2 = gcnew String(str.c_str());
+	textBox33->Text += str2;
+	listBox1->Items->Add("\r\n微笑殺手使出"+str2);
+
+
+	//
+	//int tinder = rand() % 2+1;//攻擊
+	//int defense = rand() % 2 + 1;//防禦
+	//if (tinder==1) {
+	//	textBox33->Text += ;
+	//}
+	//else
+	//{
+	//
+	//}
 }
 };
 }
