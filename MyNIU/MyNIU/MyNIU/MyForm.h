@@ -1,12 +1,25 @@
 ﻿#pragma once
 #include <iostream>
 #include <string>
+
+
 int Experience = 0;
 int experiance_judge = 0;
 int level = 1;
 int MAXHt = 50;
 int yut = 0;
-int boss_hp = 600;
+int Skill;
+int boss_hp, boss_def, boss_att, boss_iq;
+int player_hp, player_def, player_att, player_iq;
+int layer = 0;
+
+std::string boss_name[6] = { "微笑殺手","正妹汶娟老師","無信德","Python小彭","心碎小子","賴賴"};
+int boss_levv[6] = {2,5,10,15,20,25};
+int boss_hpp[6] = {600,800,1000,1200,1400,1800};
+int boss_attt[6] = {60,80,100,120,140,130};
+int boss_deff[6] = {50,70,90.110,120,100};
+int boss_iqq[6] = { 20,60,80,100,120,100};
+//int lifemyself,lifeboss, bossblood;
 //[0]吳信德老師招式
 //[1]吳汶捐老師招式
 //[2]彭老師招式
@@ -14,23 +27,24 @@ int boss_hp = 600;
 //[4]朱志明老師招式
 //[5]朱志明老師招式
 
-std::string skil[5][5] = {
-	{"什麼都沒做"},
-	{"zuvio點名","zuvio上傳練習畫面","教coffee(柴柴)握手好乖","coffee(柴柴)咬他"},
+std::string boss_skill[6][5] = {
 	{"殺球","點名","把你當掉","講故事","看球賽"},
+	{"zuvio點名","zuvio上傳練習畫面","教coffee(柴柴)握手好乖","coffee(柴柴)咬他","帶coffee(柴柴)散步"},//改
+	{"什麼都沒做","什麼都沒做","什麼都沒做","什麼都沒做","什麼都沒做"},
 	{"去接女兒","抓你抄襲","把你當掉","今天的人怎麼這麼少","你寫的程式碼很爛"},
-	{"我要錄影","叫舍監來","嘔......","我想跟妹子聊天","電玩成影"}
+	{"我要錄影","叫舍監來","嘔......","我想跟妹子聊天","電玩成影"},
+	{"洗碗攻擊","性別憑拳","洗衣服","掃地","女權自助餐"}
 };
-
-
-
-
-/*
-std::string boss[5][5] = {
-	{"2","600","30","50","20"},{""}
+//[0]帥隆
+//[1]帥郭
+//[2]帥誠
+//[3]帥泓
+std::string player_skill[4][4]{
+	{"睡之波動","睡之呼吸","撞擊","睡龍斬"},
+	{"霸道震波","雷神天明閃","飛龍在天梭利給痛","哈賽一下很舒服~"},
+	{"鯊鯊攻擊","抱鯊攻擊","手扒雞攻擊","30cm甩攻擊"},
+	{"泡妞攻擊","震驚說唱攻擊","智商輾壓攻擊","碰碰撞公雞"}
 };
-*/
-
 
 int blood;
 int attack;
@@ -173,6 +187,11 @@ private: System::Windows::Forms::TextBox^ textBox27;
 private: System::Windows::Forms::TextBox^ textBox30;
 private: System::Windows::Forms::TextBox^ textBox31;
 private: System::Windows::Forms::TextBox^ textBox32;
+private: System::Windows::Forms::PictureBox^ pictureBox9;
+
+
+
+
 
 
 
@@ -368,27 +387,28 @@ private: System::Windows::Forms::TextBox^ textBox32;
 			this->textBox19 = (gcnew System::Windows::Forms::TextBox());
 			this->tableLayoutPanel2 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			this->textBox17 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox21 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox20 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox23 = (gcnew System::Windows::Forms::TextBox());
 			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
 			this->pictureBox8 = (gcnew System::Windows::Forms::PictureBox());
 			this->textBox16 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox24 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox25 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox26 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox27 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox28 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox29 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox30 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox31 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox32 = (gcnew System::Windows::Forms::TextBox());
 			this->contextMenuStrip3 = (gcnew System::Windows::Forms::ContextMenuStrip(this->components));
 			this->textBox33 = (gcnew System::Windows::Forms::TextBox());
 			this->button13 = (gcnew System::Windows::Forms::Button());
 			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
 			this->listBox1 = (gcnew System::Windows::Forms::ListBox());
 			this->button12 = (gcnew System::Windows::Forms::Button());
-			this->textBox30 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox25 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox21 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox31 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox26 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox20 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox32 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox27 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox23 = (gcnew System::Windows::Forms::TextBox());
+			this->pictureBox9 = (gcnew System::Windows::Forms::PictureBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->tableLayoutPanel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox6))->BeginInit();
@@ -400,6 +420,7 @@ private: System::Windows::Forms::TextBox^ textBox32;
 			this->tableLayoutPanel2->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox8))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox9))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// pictureBox1
@@ -465,7 +486,7 @@ private: System::Windows::Forms::TextBox^ textBox32;
 			this->tableLayoutPanel1->Controls->Add(this->button3, 2, 2);
 			this->tableLayoutPanel1->Controls->Add(this->button4, 3, 2);
 			this->tableLayoutPanel1->Controls->Add(this->label4, 0, 1);
-			this->tableLayoutPanel1->Location = System::Drawing::Point(35, 90);
+			this->tableLayoutPanel1->Location = System::Drawing::Point(33, 88);
 			this->tableLayoutPanel1->Name = L"tableLayoutPanel1";
 			this->tableLayoutPanel1->RowCount = 3;
 			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
@@ -850,7 +871,7 @@ private: System::Windows::Forms::TextBox^ textBox32;
 			this->Role->ColumnCount = 3;
 			this->Role->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute, 101)));
 			this->Role->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute, 355)));
-			this->Role->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute, 413)));
+			this->Role->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute, 472)));
 			this->Role->Controls->Add(this->textBox4, 0, 2);
 			this->Role->Controls->Add(this->textBox1, 0, 0);
 			this->Role->Controls->Add(this->textBox3, 0, 1);
@@ -956,7 +977,7 @@ private: System::Windows::Forms::TextBox^ textBox32;
 			this->button8->Font = (gcnew System::Drawing::Font(L"新細明體", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(136)));
 			this->button8->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->button8->Location = System::Drawing::Point(-391, 5755);
+			this->button8->Location = System::Drawing::Point(-1006, 13943);
 			this->button8->Name = L"button8";
 			this->button8->Size = System::Drawing::Size(126, 51);
 			this->button8->TabIndex = 23;
@@ -971,7 +992,7 @@ private: System::Windows::Forms::TextBox^ textBox32;
 			this->button9->Font = (gcnew System::Drawing::Font(L"新細明體", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(136)));
 			this->button9->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->button9->Location = System::Drawing::Point(-241, 5755);
+			this->button9->Location = System::Drawing::Point(-856, 13943);
 			this->button9->Name = L"button9";
 			this->button9->Size = System::Drawing::Size(91, 51);
 			this->button9->TabIndex = 24;
@@ -1000,7 +1021,7 @@ private: System::Windows::Forms::TextBox^ textBox32;
 			this->button10->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->button10->Font = (gcnew System::Drawing::Font(L"新細明體", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(136)));
-			this->button10->Location = System::Drawing::Point(122, -1);
+			this->button10->Location = System::Drawing::Point(121, 6);
 			this->button10->Name = L"button10";
 			this->button10->Size = System::Drawing::Size(130, 45);
 			this->button10->TabIndex = 26;
@@ -1015,7 +1036,7 @@ private: System::Windows::Forms::TextBox^ textBox32;
 			this->button11->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->button11->Font = (gcnew System::Drawing::Font(L"新細明體", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(136)));
-			this->button11->Location = System::Drawing::Point(270, -1);
+			this->button11->Location = System::Drawing::Point(270, 6);
 			this->button11->Name = L"button11";
 			this->button11->Size = System::Drawing::Size(130, 45);
 			this->button11->TabIndex = 27;
@@ -1073,7 +1094,8 @@ private: System::Windows::Forms::TextBox^ textBox32;
 			// 
 			// tableLayoutPanel2
 			// 
-			this->tableLayoutPanel2->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->tableLayoutPanel2->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->tableLayoutPanel2->AutoSizeMode = System::Windows::Forms::AutoSizeMode::GrowAndShrink;
 			this->tableLayoutPanel2->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->tableLayoutPanel2->CellBorderStyle = System::Windows::Forms::TableLayoutPanelCellBorderStyle::Inset;
 			this->tableLayoutPanel2->ColumnCount = 3;
@@ -1102,7 +1124,7 @@ private: System::Windows::Forms::TextBox^ textBox32;
 			this->tableLayoutPanel2->Controls->Add(this->textBox30, 2, 4);
 			this->tableLayoutPanel2->Controls->Add(this->textBox31, 2, 5);
 			this->tableLayoutPanel2->Controls->Add(this->textBox32, 2, 6);
-			this->tableLayoutPanel2->Location = System::Drawing::Point(121, 56);
+			this->tableLayoutPanel2->Location = System::Drawing::Point(95, 56);
 			this->tableLayoutPanel2->Name = L"tableLayoutPanel2";
 			this->tableLayoutPanel2->RowCount = 7;
 			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 20.3125F)));
@@ -1133,6 +1155,51 @@ private: System::Windows::Forms::TextBox^ textBox32;
 			this->textBox17->Text = L"第一層:微笑殺手";
 			this->textBox17->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox17->TextChanged += gcnew System::EventHandler(this, &MyForm::textBox17_TextChanged_1);
+			// 
+			// textBox21
+			// 
+			this->textBox21->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->textBox21->BackColor = System::Drawing::SystemColors::InactiveCaptionText;
+			this->textBox21->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox21->Font = (gcnew System::Drawing::Font(L"新細明體", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(136)));
+			this->textBox21->ForeColor = System::Drawing::SystemColors::Window;
+			this->textBox21->Location = System::Drawing::Point(11, 285);
+			this->textBox21->Name = L"textBox21";
+			this->textBox21->Size = System::Drawing::Size(89, 23);
+			this->textBox21->TabIndex = 6;
+			this->textBox21->Text = L"攻擊力";
+			this->textBox21->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			// 
+			// textBox20
+			// 
+			this->textBox20->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->textBox20->BackColor = System::Drawing::SystemColors::InactiveCaptionText;
+			this->textBox20->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox20->Font = (gcnew System::Drawing::Font(L"新細明體", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(136)));
+			this->textBox20->ForeColor = System::Drawing::SystemColors::Window;
+			this->textBox20->Location = System::Drawing::Point(11, 322);
+			this->textBox20->Name = L"textBox20";
+			this->textBox20->Size = System::Drawing::Size(89, 23);
+			this->textBox20->TabIndex = 4;
+			this->textBox20->Text = L"防禦力";
+			this->textBox20->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			// 
+			// textBox23
+			// 
+			this->textBox23->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->textBox23->BackColor = System::Drawing::SystemColors::InactiveCaptionText;
+			this->textBox23->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox23->Font = (gcnew System::Drawing::Font(L"新細明體", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(136)));
+			this->textBox23->ForeColor = System::Drawing::SystemColors::Window;
+			this->textBox23->Location = System::Drawing::Point(11, 359);
+			this->textBox23->Name = L"textBox23";
+			this->textBox23->Size = System::Drawing::Size(89, 23);
+			this->textBox23->TabIndex = 8;
+			this->textBox23->Text = L"智商";
+			this->textBox23->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// pictureBox2
 			// 
@@ -1182,6 +1249,48 @@ private: System::Windows::Forms::TextBox^ textBox32;
 			this->textBox24->TabIndex = 11;
 			this->textBox24->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
+			// textBox25
+			// 
+			this->textBox25->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->textBox25->BackColor = System::Drawing::SystemColors::InactiveCaptionText;
+			this->textBox25->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox25->Font = (gcnew System::Drawing::Font(L"新細明體", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(136)));
+			this->textBox25->ForeColor = System::Drawing::SystemColors::Window;
+			this->textBox25->Location = System::Drawing::Point(218, 285);
+			this->textBox25->Name = L"textBox25";
+			this->textBox25->Size = System::Drawing::Size(89, 23);
+			this->textBox25->TabIndex = 11;
+			this->textBox25->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			// 
+			// textBox26
+			// 
+			this->textBox26->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->textBox26->BackColor = System::Drawing::SystemColors::InactiveCaptionText;
+			this->textBox26->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox26->Font = (gcnew System::Drawing::Font(L"新細明體", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(136)));
+			this->textBox26->ForeColor = System::Drawing::SystemColors::Window;
+			this->textBox26->Location = System::Drawing::Point(218, 322);
+			this->textBox26->Name = L"textBox26";
+			this->textBox26->Size = System::Drawing::Size(89, 23);
+			this->textBox26->TabIndex = 11;
+			this->textBox26->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			// 
+			// textBox27
+			// 
+			this->textBox27->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->textBox27->BackColor = System::Drawing::SystemColors::InactiveCaptionText;
+			this->textBox27->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox27->Font = (gcnew System::Drawing::Font(L"新細明體", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(136)));
+			this->textBox27->ForeColor = System::Drawing::SystemColors::Window;
+			this->textBox27->Location = System::Drawing::Point(218, 359);
+			this->textBox27->Name = L"textBox27";
+			this->textBox27->Size = System::Drawing::Size(89, 23);
+			this->textBox27->TabIndex = 11;
+			this->textBox27->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			// 
 			// textBox28
 			// 
 			this->textBox28->Anchor = System::Windows::Forms::AnchorStyles::None;
@@ -1214,6 +1323,54 @@ private: System::Windows::Forms::TextBox^ textBox32;
 			this->textBox29->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox29->Visible = false;
 			// 
+			// textBox30
+			// 
+			this->textBox30->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->textBox30->BackColor = System::Drawing::SystemColors::InactiveCaptionText;
+			this->textBox30->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox30->Font = (gcnew System::Drawing::Font(L"新細明體", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(136)));
+			this->textBox30->ForeColor = System::Drawing::SystemColors::Window;
+			this->textBox30->Location = System::Drawing::Point(525, 285);
+			this->textBox30->Name = L"textBox30";
+			this->textBox30->Size = System::Drawing::Size(89, 23);
+			this->textBox30->TabIndex = 12;
+			this->textBox30->Text = L"60";
+			this->textBox30->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->textBox30->Visible = false;
+			// 
+			// textBox31
+			// 
+			this->textBox31->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->textBox31->BackColor = System::Drawing::SystemColors::InactiveCaptionText;
+			this->textBox31->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox31->Font = (gcnew System::Drawing::Font(L"新細明體", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(136)));
+			this->textBox31->ForeColor = System::Drawing::SystemColors::Window;
+			this->textBox31->Location = System::Drawing::Point(525, 322);
+			this->textBox31->Name = L"textBox31";
+			this->textBox31->Size = System::Drawing::Size(89, 23);
+			this->textBox31->TabIndex = 12;
+			this->textBox31->Text = L"50";
+			this->textBox31->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->textBox31->Visible = false;
+			// 
+			// textBox32
+			// 
+			this->textBox32->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->textBox32->BackColor = System::Drawing::SystemColors::InactiveCaptionText;
+			this->textBox32->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox32->Font = (gcnew System::Drawing::Font(L"新細明體", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(136)));
+			this->textBox32->ForeColor = System::Drawing::SystemColors::Window;
+			this->textBox32->Location = System::Drawing::Point(525, 359);
+			this->textBox32->Name = L"textBox32";
+			this->textBox32->Size = System::Drawing::Size(89, 23);
+			this->textBox32->TabIndex = 12;
+			this->textBox32->Text = L"20";
+			this->textBox32->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->textBox32->Visible = false;
+			// 
 			// contextMenuStrip3
 			// 
 			this->contextMenuStrip3->Name = L"contextMenuStrip3";
@@ -1227,7 +1384,7 @@ private: System::Windows::Forms::TextBox^ textBox32;
 			this->textBox33->Font = (gcnew System::Drawing::Font(L"新細明體", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(136)));
 			this->textBox33->ForeColor = System::Drawing::SystemColors::MenuBar;
-			this->textBox33->Location = System::Drawing::Point(-5, 1339);
+			this->textBox33->Location = System::Drawing::Point(-620, 9527);
 			this->textBox33->Multiline = true;
 			this->textBox33->Name = L"textBox33";
 			this->textBox33->Size = System::Drawing::Size(734, 50);
@@ -1264,7 +1421,7 @@ private: System::Windows::Forms::TextBox^ textBox32;
 			this->listBox1->FormattingEnabled = true;
 			this->listBox1->ItemHeight = 19;
 			this->listBox1->Items->AddRange(gcnew cli::array< System::Object^  >(1) { L"戰鬥紀錄：" });
-			this->listBox1->Location = System::Drawing::Point(133, 541);
+			this->listBox1->Location = System::Drawing::Point(123, 566);
 			this->listBox1->Name = L"listBox1";
 			this->listBox1->ScrollAlwaysVisible = true;
 			this->listBox1->Size = System::Drawing::Size(757, 137);
@@ -1285,148 +1442,23 @@ private: System::Windows::Forms::TextBox^ textBox32;
 			this->button12->UseVisualStyleBackColor = false;
 			this->button12->Visible = false;
 			// 
-			// textBox30
+			// pictureBox9
 			// 
-			this->textBox30->Anchor = System::Windows::Forms::AnchorStyles::None;
-			this->textBox30->BackColor = System::Drawing::SystemColors::InactiveCaptionText;
-			this->textBox30->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox30->Font = (gcnew System::Drawing::Font(L"新細明體", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(136)));
-			this->textBox30->ForeColor = System::Drawing::SystemColors::Window;
-			this->textBox30->Location = System::Drawing::Point(525, 285);
-			this->textBox30->Name = L"textBox30";
-			this->textBox30->Size = System::Drawing::Size(89, 23);
-			this->textBox30->TabIndex = 12;
-			this->textBox30->Text = L"30";
-			this->textBox30->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
-			this->textBox30->Visible = false;
-			// 
-			// textBox25
-			// 
-			this->textBox25->Anchor = System::Windows::Forms::AnchorStyles::None;
-			this->textBox25->BackColor = System::Drawing::SystemColors::InactiveCaptionText;
-			this->textBox25->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox25->Font = (gcnew System::Drawing::Font(L"新細明體", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(136)));
-			this->textBox25->ForeColor = System::Drawing::SystemColors::Window;
-			this->textBox25->Location = System::Drawing::Point(218, 285);
-			this->textBox25->Name = L"textBox25";
-			this->textBox25->Size = System::Drawing::Size(89, 23);
-			this->textBox25->TabIndex = 11;
-			this->textBox25->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
-			// 
-			// textBox21
-			// 
-			this->textBox21->Anchor = System::Windows::Forms::AnchorStyles::None;
-			this->textBox21->BackColor = System::Drawing::SystemColors::InactiveCaptionText;
-			this->textBox21->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox21->Font = (gcnew System::Drawing::Font(L"新細明體", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(136)));
-			this->textBox21->ForeColor = System::Drawing::SystemColors::Window;
-			this->textBox21->Location = System::Drawing::Point(11, 285);
-			this->textBox21->Name = L"textBox21";
-			this->textBox21->Size = System::Drawing::Size(89, 23);
-			this->textBox21->TabIndex = 6;
-			this->textBox21->Text = L"攻擊力";
-			this->textBox21->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
-			// 
-			// textBox31
-			// 
-			this->textBox31->Anchor = System::Windows::Forms::AnchorStyles::None;
-			this->textBox31->BackColor = System::Drawing::SystemColors::InactiveCaptionText;
-			this->textBox31->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox31->Font = (gcnew System::Drawing::Font(L"新細明體", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(136)));
-			this->textBox31->ForeColor = System::Drawing::SystemColors::Window;
-			this->textBox31->Location = System::Drawing::Point(525, 322);
-			this->textBox31->Name = L"textBox31";
-			this->textBox31->Size = System::Drawing::Size(89, 23);
-			this->textBox31->TabIndex = 12;
-			this->textBox31->Text = L"50";
-			this->textBox31->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
-			this->textBox31->Visible = false;
-			// 
-			// textBox26
-			// 
-			this->textBox26->Anchor = System::Windows::Forms::AnchorStyles::None;
-			this->textBox26->BackColor = System::Drawing::SystemColors::InactiveCaptionText;
-			this->textBox26->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox26->Font = (gcnew System::Drawing::Font(L"新細明體", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(136)));
-			this->textBox26->ForeColor = System::Drawing::SystemColors::Window;
-			this->textBox26->Location = System::Drawing::Point(218, 322);
-			this->textBox26->Name = L"textBox26";
-			this->textBox26->Size = System::Drawing::Size(89, 23);
-			this->textBox26->TabIndex = 11;
-			this->textBox26->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
-			// 
-			// textBox20
-			// 
-			this->textBox20->Anchor = System::Windows::Forms::AnchorStyles::None;
-			this->textBox20->BackColor = System::Drawing::SystemColors::InactiveCaptionText;
-			this->textBox20->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox20->Font = (gcnew System::Drawing::Font(L"新細明體", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(136)));
-			this->textBox20->ForeColor = System::Drawing::SystemColors::Window;
-			this->textBox20->Location = System::Drawing::Point(11, 322);
-			this->textBox20->Name = L"textBox20";
-			this->textBox20->Size = System::Drawing::Size(89, 23);
-			this->textBox20->TabIndex = 4;
-			this->textBox20->Text = L"防禦力";
-			this->textBox20->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
-			// 
-			// textBox32
-			// 
-			this->textBox32->Anchor = System::Windows::Forms::AnchorStyles::None;
-			this->textBox32->BackColor = System::Drawing::SystemColors::InactiveCaptionText;
-			this->textBox32->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox32->Font = (gcnew System::Drawing::Font(L"新細明體", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(136)));
-			this->textBox32->ForeColor = System::Drawing::SystemColors::Window;
-			this->textBox32->Location = System::Drawing::Point(525, 359);
-			this->textBox32->Name = L"textBox32";
-			this->textBox32->Size = System::Drawing::Size(89, 23);
-			this->textBox32->TabIndex = 12;
-			this->textBox32->Text = L"20";
-			this->textBox32->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
-			this->textBox32->Visible = false;
-			// 
-			// textBox27
-			// 
-			this->textBox27->Anchor = System::Windows::Forms::AnchorStyles::None;
-			this->textBox27->BackColor = System::Drawing::SystemColors::InactiveCaptionText;
-			this->textBox27->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox27->Font = (gcnew System::Drawing::Font(L"新細明體", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(136)));
-			this->textBox27->ForeColor = System::Drawing::SystemColors::Window;
-			this->textBox27->Location = System::Drawing::Point(218, 359);
-			this->textBox27->Name = L"textBox27";
-			this->textBox27->Size = System::Drawing::Size(89, 23);
-			this->textBox27->TabIndex = 11;
-			this->textBox27->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
-			// 
-			// textBox23
-			// 
-			this->textBox23->Anchor = System::Windows::Forms::AnchorStyles::None;
-			this->textBox23->BackColor = System::Drawing::SystemColors::InactiveCaptionText;
-			this->textBox23->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox23->Font = (gcnew System::Drawing::Font(L"新細明體", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(136)));
-			this->textBox23->ForeColor = System::Drawing::SystemColors::Window;
-			this->textBox23->Location = System::Drawing::Point(11, 359);
-			this->textBox23->Name = L"textBox23";
-			this->textBox23->Size = System::Drawing::Size(89, 23);
-			this->textBox23->TabIndex = 8;
-			this->textBox23->Text = L"智商";
-			this->textBox23->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->pictureBox9->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox9.Image")));
+			this->pictureBox9->Location = System::Drawing::Point(1, -1);
+			this->pictureBox9->Name = L"pictureBox9";
+			this->pictureBox9->Size = System::Drawing::Size(1154, 613);
+			this->pictureBox9->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			this->pictureBox9->TabIndex = 37;
+			this->pictureBox9->TabStop = false;
+			this->pictureBox9->Visible = false;
 			// 
 			// MyForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 12);
-			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::None;
 			this->AutoScroll = true;
 			this->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->ClientSize = System::Drawing::Size(1130, 613);
+			this->ClientSize = System::Drawing::Size(1445, 613);
 			this->Controls->Add(this->button12);
 			this->Controls->Add(this->listBox1);
 			this->Controls->Add(this->tableLayoutPanel2);
@@ -1447,9 +1479,11 @@ private: System::Windows::Forms::TextBox^ textBox32;
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->Role);
+			this->Controls->Add(this->pictureBox9);
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"MyForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-			this->Text = L"MyForm";
+			this->Text = L"MyNIU";
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->tableLayoutPanel1->ResumeLayout(false);
@@ -1465,6 +1499,7 @@ private: System::Windows::Forms::TextBox^ textBox32;
 			this->tableLayoutPanel2->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox8))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox9))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -1474,14 +1509,14 @@ private: System::Windows::Forms::TextBox^ textBox32;
 private: System::Void pictureBox1_Click_1(System::Object^ sender, System::EventArgs^ e) {
 	//Random^ RandInt = gcnew Random();
 	//int x = rand();
-	int x = 0;
+	int x = 0;//改
 	if (x % 2) {
 		MessageBox::Show("恭喜確診88");
 		Application::Exit();
 	}
 	else
 	{
-		MessageBox::Show("陰性");
+		MessageBox::Show("陰莖");
 		label1->Visible = false;
 		tableLayoutPanel1->Visible = true;
 		label3->Visible = true;
@@ -1563,7 +1598,7 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 	button6->Visible = true;
 	button7->Visible = true;
 	pictureBox7->ImageLocation = "./image/S__114614276.jpg";
-	yut = 1;
+	yut = 3;
 	blood = 500;
 	attack = 30;
 	defend = 40;
@@ -1579,7 +1614,7 @@ private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e
 	Role->Visible = true;
 	pictureBox7->Visible = true;
 	pictureBox7->ImageLocation = "./image/43678.jpg";
-	yut = 1;
+	yut = 4;
 	textBox2->Text = "帥泓";
 	textBox9->Text = "500";
 	textBox10->Text = "50";
@@ -1664,7 +1699,7 @@ private: System::Void button7_Click(System::Object^ sender, System::EventArgs^ e
 		level += 1;
 		experiance_judge = 0;
 		blood += 15;
-		attack += 5;
+		attack += 9999;//改
 		defend += 5;
 		iq += 10;
 		textBox9->Text = blood.ToString();//血量
@@ -1707,8 +1742,12 @@ private: System::Void button10_Click_1(System::Object^ sender, System::EventArgs
 	button7->Visible = true;
 	textBox15->Visible = true;
 	tableLayoutPanel2->Visible = false;
+	listBox1->Items->Clear();
+	listBox1->Visible = false;
 }
 private: System::Void button11_Click_1(System::Object^ sender, System::EventArgs^ e) {
+	listBox1->Visible = true;
+	listBox1->Items->Add("戰鬥紀錄：");
 	button13->Visible = true;
 	textBox33->Visible = true;
 	textBox28->Visible = true;
@@ -1728,7 +1767,7 @@ private: System::Void button11_Click_1(System::Object^ sender, System::EventArgs
 	button7->Visible = false;
 	textBox15->Visible = false;
 	tableLayoutPanel2->Visible = true;
-	MessageBox::Show("先發100顆球，發完加分!!!");
+	
 	if (yut == 1) {
 		textBox19->Text = "帥隆";
 		pictureBox2->ImageLocation = "./image/6722.jpg";
@@ -1757,38 +1796,499 @@ private: System::Void textBox19_TextChanged(System::Object^ sender, System::Even
 private: System::Void button12_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void button13_Click(System::Object^ sender, System::EventArgs^ e) {
-	listBox1->Visible = true;
-	//MAXHt = 40;
-	timer1->Enabled = true;
-	//button13.left ++;
+	listBox1->Items->Clear();
+	listBox1->Items->Add("戰鬥紀錄：");
+	String^ blood = textBox9->Text;
+	int size = blood->Length;
+	int* blood_num = new int[size];
+	int cot = 1;
+	player_hp = 0;
+	for (int i = 1; i < size; i++) {
+		cot *= 10;
+	}
+	for (int i = size - 1; i >= 0; i--) {
+		blood_num[i] = Convert::ToInt32(blood->Substring(size - i - 1, 1));
+		player_hp += blood_num[i]*cot;
+		cot /= 10;
+	}//玩家血量
+
+	String^ att = textBox10->Text;
+	size = att->Length;
+	int* att_num = new int[size];
+	cot = 1;
+	player_att = 0;
+	for (int i = 1; i < size; i++) {
+		cot *= 10;
+	}
+	for (int i = size - 1; i >= 0; i--) {
+		att_num[i] = Convert::ToInt32(att->Substring(size - i - 1, 1));
+		player_att += att_num[i] * cot;
+		cot /= 10;
+	}//玩家攻擊力
+
+	String^ def = textBox12->Text;
+	size = def->Length;
+	int* def_num = new int[size];
+	cot = 1;
+	player_def = 0;
+	for (int i = 1; i < size; i++) {
+		cot *= 10;
+	}
+	for (int i = size - 1; i >= 0; i--) {
+		def_num[i] = Convert::ToInt32(def->Substring(size - i - 1, 1));
+		player_def += def_num[i] * cot;
+		cot /= 10;
+	}//玩家防禦力
+
+	String^ iq = textBox11->Text;
+	size = iq->Length;
+	int* iq_num = new int[size];
+	cot = 1;
+	player_iq = 0;
+	for (int i = 1; i < size; i++) {
+		cot *= 10;
+	}
+	for (int i = size - 1; i >= 0; i--) {
+		iq_num[i] = Convert::ToInt32(iq->Substring(size - i - 1, 1));
+		player_iq += iq_num[i] * cot;
+		cot /= 10;
+	}//玩家智商
+	//
+	//
+	//
+	String^ b_blood = textBox29->Text;
+	size = b_blood->Length;
+	int* b_blood_num = new int[size];
+	cot = 1;
+	boss_iq = 0;
+	for (int i = 1; i < size; i++) {
+		cot *= 10;
+	}
+	for (int i = size - 1; i >= 0; i--) {
+		b_blood_num[i] = Convert::ToInt32(b_blood->Substring(size - i - 1, 1));
+		boss_hp += b_blood_num[i] * cot;
+		cot /= 10;
+	}
+	//boss血量
+	String^ b_att = textBox30->Text;
+	size = b_att->Length;
+	int* b_att_num = new int[size];
+	cot = 1;
+	boss_att = 0;
+	for (int i = 1; i < size; i++) {
+		cot *= 10;
+	}
+	for (int i = size - 1; i >= 0; i--) {
+		b_att_num[i] = Convert::ToInt32(b_att->Substring(size - i - 1, 1));
+		boss_att += b_att_num[i] * cot;
+		cot /= 10;
+	}
+	//boss攻擊力
+	String^ b_def = textBox31->Text;
+	size = b_def->Length;
+	int* b_def_num = new int[size];
+	cot = 1;
+	boss_def = 0;
+	for (int i = 1; i < size; i++) {
+		cot *= 10;
+	}
+	for (int i = size - 1; i >= 0; i--) {
+		b_def_num[i] = Convert::ToInt32(b_def->Substring(size - i - 1, 1));
+		boss_def += b_def_num[i] * cot;
+		cot /= 10;
+	}
+	//boss防禦力
+	String^ b_iq = textBox32->Text;
+	size = b_iq->Length;
+	int* b_iq_num = new int[size];
+	cot = 1;
+	boss_iq = 0;
+	for (int i = 1; i < size; i++) {
+		cot *= 10;
+	}
+	for (int i = size - 1; i >= 0; i--) {
+		b_iq_num[i] = Convert::ToInt32(b_iq->Substring(size - i - 1, 1));
+		boss_iq += b_iq_num[i] * cot;
+		cot /= 10;
+	}
+	//boss智商
+	timer1->Start();
+	
+	/*
+	switch (layer)
+	{
+	case 0: {
+		std::string str = boss_name[0];
+		String^ str2 = gcnew String(str.c_str());
+		textBox17->Text = str2;
+		//boss名稱
+		textBox28->Text = boss_levv[0].ToString();//等級
+		textBox29->Text = boss_hpp[0].ToString();//血量
+		textBox30->Text = boss_attt[0].ToString();//攻擊
+		textBox31->Text = boss_deff[0].ToString();//防禦
+		textBox32->Text = boss_iqq[0].ToString();//智商
+	}
+
+	case 1: {
+		std::string str = boss_name[1];
+		String^ str2 = gcnew String(str.c_str());
+		textBox17->Text = str2;
+		//boss名稱
+		textBox28->Text = boss_levv[1].ToString();//等級
+		textBox29->Text = boss_hpp[1].ToString();//血量
+		textBox30->Text = boss_attt[1].ToString();//攻擊
+		textBox31->Text = boss_deff[1].ToString();//防禦
+		textBox32->Text = boss_iqq[1].ToString();//智商
+	}
+
+	case 2: {
+		std::string str = boss_name[2];
+		String^ str2 = gcnew String(str.c_str());
+		textBox17->Text = str2;
+		//boss名稱
+		textBox28->Text = boss_levv[2].ToString();//等級
+		textBox29->Text = boss_hpp[2].ToString();//血量
+		textBox30->Text = boss_attt[2].ToString();//攻擊
+		textBox31->Text = boss_deff[2].ToString();//防禦
+		textBox32->Text = boss_iqq[2].ToString();//智商
+	}
+
+	case 3: {
+		std::string str = boss_name[3];
+		String^ str2 = gcnew String(str.c_str());
+		textBox17->Text = str2;
+		//boss名稱
+		textBox28->Text = boss_levv[3].ToString();//等級
+		textBox29->Text = boss_hpp[3].ToString();//血量
+		textBox30->Text = boss_attt[3].ToString();//攻擊
+		textBox31->Text = boss_deff[3].ToString();//防禦
+		textBox32->Text = boss_iqq[3].ToString();//智商
+	}
+
+	case 4: {
+		std::string str = boss_name[4];
+		String^ str2 = gcnew String(str.c_str());
+		textBox17->Text = str2;
+		//boss名稱
+		textBox28->Text = boss_levv[4].ToString();//等級
+		textBox29->Text = boss_hpp[4].ToString();//血量
+		textBox30->Text = boss_attt[4].ToString();//攻擊
+		textBox31->Text = boss_deff[4].ToString();//防禦
+		textBox32->Text = boss_iqq[4].ToString();//智商
+	}
+	}*/
 }
+
+//textBox17 Boss名稱
+//pictureBox8 Boss照片
+//textBox28Boss等級
+//textBox29Boss血量
+//textBox30Boss攻擊
+//textBox31Boss防禦
+//textBox32Boss智商
 
 private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) {
+
 	if (boss_hp < 0) {
-		timer1->Enabled = false;
+		timer1->Stop();
+		std::string str = boss_name[layer];
+		String^ str2 = gcnew String(str.c_str());
+		MessageBox::Show(str2+"倒下了，玩家剩餘血量" + player_hp.ToString());
+		layer += 1;
+		if (layer == 1) {
+			//改
+			//吳汶涓
+			pictureBox8->ImageLocation = "./image/wenn.jpg";
+			MessageBox::Show("把你成績微分!!!");
+			std::string str = boss_name[1];
+			String^ str2 = gcnew String(str.c_str());
+			textBox17->Text = ("第二層：" + str2);
+			//boss名稱
+			textBox28->Text = boss_levv[1].ToString();//等級
+			textBox29->Text = boss_hpp[1].ToString();//血量
+			textBox30->Text = boss_attt[1].ToString();//攻擊
+			textBox31->Text = boss_deff[1].ToString();//防禦
+			textBox32->Text = boss_iqq[1].ToString();//智商
+		}
+		if (layer == 2) {
+			//put image here
+			//吳姓德
+			pictureBox8->ImageLocation = "./image/7165.jpg";
+			MessageBox::Show("下課了");
+			std::string str = boss_name[2];
+			String^ str2 = gcnew String(str.c_str());
+			textBox17->Text = str2;
+			//boss名稱
+			textBox28->Text = boss_levv[2].ToString();//等級
+			textBox29->Text = boss_hpp[2].ToString();//血量
+			textBox30->Text = boss_attt[2].ToString();//攻擊
+			textBox31->Text = boss_deff[2].ToString();//防禦
+			textBox32->Text = boss_iqq[2].ToString();//智商
+		}
+		if (layer == 3) {
+			//put image here
+			pictureBox8->ImageLocation = "./image/7164.jpg";
+			MessageBox::Show("發現同學程式碼有抄襲!!!");
+			std::string str = boss_name[3];
+			String^ str2 = gcnew String(str.c_str());
+			textBox17->Text = str2;
+			//boss名稱
+			textBox28->Text = boss_levv[3].ToString();//等級
+			textBox29->Text = boss_hpp[3].ToString();//血量
+			textBox30->Text = boss_attt[3].ToString();//攻擊
+			textBox31->Text = boss_deff[3].ToString();//防禦
+			textBox32->Text = boss_iqq[3].ToString();//智商
+		}
+		if (layer == 4) {
+			//put image here
+			pictureBox8->ImageLocation = "./image/7166.jpg";
+			MessageBox::Show("我要錄影");
+			std::string str = boss_name[4];
+			String^ str2 = gcnew String(str.c_str());
+			textBox17->Text = str2;
+			//boss名稱
+			textBox28->Text = boss_levv[4].ToString();//等級
+			textBox29->Text = boss_hpp[4].ToString();//血量
+			textBox30->Text = boss_attt[4].ToString();//攻擊
+			textBox31->Text = boss_deff[4].ToString();//防禦
+			textBox32->Text = boss_iqq[4].ToString();//智商
+		}
+		if (layer == 5) {
+			//put image here
+			pictureBox8->ImageLocation = "./image/7111.jpg";
+			MessageBox::Show("可以幫我找手機嗎?");
+			std::string str = boss_name[5];
+			String^ str2 = gcnew String(str.c_str());
+			textBox17->Text = str2;
+			//boss名稱
+			textBox28->Text = boss_levv[5].ToString();//等級
+			textBox29->Text = boss_hpp[5].ToString();//血量
+			textBox30->Text = boss_attt[5].ToString();//攻擊
+			textBox31->Text = boss_deff[5].ToString();//防禦
+			textBox32->Text = boss_iqq[5].ToString();//智商
+		}
+		if (layer == 6) {
+			pictureBox9->Visible = true;
+			pictureBox9->BringToFront();
+			MessageBox::Show("通關成功!!!");
+		}
+
+}
+	if (player_hp < 0) {
+		timer1->Stop();
+		if (yut == 1) {
+			MessageBox::Show("帥隆倒下了，Boss剩餘血量" + boss_hp.ToString());
+		}
+		if (yut == 2) {
+			MessageBox::Show("帥廷倒下了，Boss剩餘血量" + boss_hp.ToString());
+		}
+		if (yut == 3) {
+			MessageBox::Show("帥誠倒下了，Boss剩餘血量" + boss_hp.ToString());
+		}
+		if (yut == 4) {
+			MessageBox::Show("帥泓倒下了，Boss剩餘血量" + boss_hp.ToString());
+		}
+
+		
+		
 	}
-	MAXHt += 19;
-	textBox33->Height = MAXHt;
-
-	boss_hp -= 100;
-	textBox33->Text += "\r\n微笑殺手使出";
-	int rd = rand() % 4;
-	std::string str = skil[1][rd];
-	String^ str2 = gcnew String(str.c_str());
-	textBox33->Text += str2;
-	listBox1->Items->Add("\r\n微笑殺手使出"+str2);
+	
+	/*
+	player_hp = textbox9.Text;
+	player_att = textbox10;
+	player_def = textbox12;
+	player_iq = textbox11;
+	*/
+	//閃躲技能
 
 
-	//
-	//int tinder = rand() % 2+1;//攻擊
-	//int defense = rand() % 2 + 1;//防禦
-	//if (tinder==1) {
-	//	textBox33->Text += ;
-	//}
-	//else
-	//{
-	//
-	//}
+	if (yut == 1) {
+		if (player_iq/10 >= boss_iq/10) {
+			int rd = rand() % 4;
+			int tinder = rand()% 100+1-(boss_def / 10);//閃多的機率
+			if (tinder <= 0) {
+				std::string str3 = boss_name[layer];
+				String^ str4 = gcnew String(str3.c_str());
+				listBox1->Items->Add("\r\n" + str4 + "閃躲");
+			}
+			else {
+				std::string str = player_skill[0][rd];
+				String^ str2 = gcnew String(str.c_str());
+				listBox1->Items->Add("\r\n帥隆使用" + str2 + "造成了" + player_att.ToString() + "傷害");
+				player_iq -= 10;
+				boss_hp -= player_att;
+			}
+		}//玩家攻擊
+		else {
+			int rd = rand() % 4;
+			String^ textgh = textBox26->Text;
+			int size = textgh->Length;
+			int* num = new int[size];
+			for (int i = size - 1; i >= 0; i--) {
+				num[i] = Convert::ToInt32(textgh->Substring(size - i - 1, 1));
+				Skill = num[i];
+			}
+			int tinder = rand() % 100 + 1 - (Skill / 10);//閃多的機率
+			if (tinder <= 0) {
+				std::string str3 = boss_name[layer];
+				String^ str4 = gcnew String(str3.c_str());
+				listBox1->Items->Add("\r\n帥隆閃躲");
+			}
+			else {
+				std::string str = boss_skill[layer][rd];
+				String^ str2 = gcnew String(str.c_str());
+				std::string str3 = boss_name[layer];
+				String^ str4 = gcnew String(str3.c_str());
+				listBox1->Items->Add("\r\n" + str4 + "使用" + str2 + "造成了" + boss_att.ToString() + "傷害");
+				boss_iq -= 10;
+				player_hp -= boss_att;
+			}
+		}//Boss攻擊
+	}//隆
+	if (yut == 2) {
+		if (player_iq / 10 >= boss_iq / 10) {
+			int rd = rand() % 4;
+			std::string str = player_skill[1][rd];
+			String^ str2 = gcnew String(str.c_str());
+			listBox1->Items->Add("\r\n帥廷使用" + str2 + "造成了" + player_att.ToString() + "傷害");
+			player_iq -= 10;
+			boss_hp -= player_att;
+		}//玩家攻擊
+		else {
+			int rd = rand() % 4;
+			std::string str = boss_skill[layer][rd];
+			String^ str2 = gcnew String(str.c_str());
+			std::string str3 = boss_name[layer];
+			String^ str4 = gcnew String(str3.c_str());
+			listBox1->Items->Add("\r\n"+str4+"使用" + str2 + "造成了" + boss_att.ToString() + "傷害");
+			boss_iq -= 10;
+			player_hp -= boss_att;
+		}//Boss攻擊
+	}//廷
+	if (yut == 3) {
+		if (player_iq / 10 >= boss_iq / 10) {
+			int rd = rand() % 4;
+			std::string str = player_skill[2][rd];
+			String^ str2 = gcnew String(str.c_str());
+			listBox1->Items->Add("\r\n帥誠使用" + str2 + "造成了" + player_att.ToString() + "傷害");
+			player_iq -= 10;
+			boss_hp -= player_att;
+		}//玩家攻擊
+		else {
+			int rd = rand() % 4;
+			std::string str = boss_skill[layer][rd];
+			String^ str2 = gcnew String(str.c_str());
+			std::string str3 = boss_name[layer];
+			String^ str4 = gcnew String(str3.c_str());
+			listBox1->Items->Add("\r\n"+str4+"使用" + str2 + "造成了" + boss_att.ToString() + "傷害");
+			boss_iq -= 10;
+			player_hp -= boss_att;
+		}//Boss攻擊
+	}//誠
+	if (yut == 4) {
+		if (player_iq / 10 >= boss_iq / 10) {
+			int rd = rand() % 4;
+			std::string str = player_skill[3][rd];
+			String^ str2 = gcnew String(str.c_str());
+			listBox1->Items->Add("\r\n帥泓使用" + str2 + "造成了" + player_att.ToString() + "傷害");
+			player_iq -= 10;
+			boss_hp -= player_att;
+		}//玩家攻擊
+		else {
+			int rd = rand() % 4;
+			std::string str = boss_skill[layer][rd];
+			String^ str2 = gcnew String(str.c_str());
+			std::string str3 = boss_name[layer];
+			String^ str4 = gcnew String(str3.c_str());
+			listBox1->Items->Add("\r\n"+str4+"使用" + str2 + "造成了" + boss_att.ToString() + "傷害");
+			boss_iq -= 10;
+			player_hp -= boss_att;
+		}//Boss攻擊
+
+	}//泓
+	//MAXHt += 19;
+	//textBox33->Height = MAXHt;
+
+	//boss_hp -= 100;
+	//textBox33->Text += "\r\n微笑殺手使出";
+	//int rd = rand() % 4;
+	//std::string str = skil[1][rd];
+	//String^ str2 = gcnew String(str.c_str());
+	//textBox33->Text += str2;
+	//listBox1->Items->Add("\r\n微笑殺手使出"+rd+str2);
+
+	/*
+	int tinder = rand() % 2+1;//攻擊
+	int defense = rand() % 2 + 1;//防禦
+	*/
+	
+	//1的是我們攻擊 2是boss攻擊
+	//if (yut == 1) {
+		/*String^ textgh = textBox25->Text;
+		int size = textgh->Length;
+		int* num = new int[size];
+		for (int i = size - 1; i >= 0; i--) {
+			num[i] = Convert::ToInt32(textgh->Substring(size - i - 1, 1));
+			Skill = num[i];
+		}
+		textBox34->Text += Skill.ToString();*/
+
+		/*
+		String^ texthp = textBox24->Text;
+		int sizehp = texthp->Length;
+		int* num = new int[sizehp];
+		for (int i = sizehp -1 ; i >= 0; i--) {
+			lifemyself =num[i] = Convert::ToInt32(texthp->Substring(sizehp - i -1 , 1));
+			lifemyself = num[i];//我的腳色生命值
+		}
+		//對戰中判斷雙方誰先歸零
+		while (lifemyself >= 0)
+		{
+			int rd = rand() % 4;//rd要使用的技能
+			String^ textgh = textBox25->Text;
+			int size = textgh->Length;
+			int* num = new int[size];
+			int cot = 1;
+			for (int i = size - 1; i >= 0; i--) {
+				num[i] = Convert::ToInt32(textgh->Substring(size - i - 1, 1));
+				Skill += num[i]*cot;//我的腳色攻擊力
+				cot *= 10;
+			}
+			String^ textboshp = textBox29->Text;
+			int sizeboshp = textgh->Length;
+			int* numboshp = new int[sizeboshp];
+			for (int i = sizeboshp - 1; i >= 0; i--) {
+				numboshp[i] = Convert::ToInt32(textboshp->Substring(sizeboshp - i - 1, 1));
+				lifeboss += numboshp[i];//boss生命值
+			}
+			String^ textblood = textBox30->Text;
+			int sizeblood = textgh->Length;
+			int* numblood = new int[sizeblood];
+			for (int i = sizeblood - 1; i >= 0; i--) {
+				numblood[i] = Convert::ToInt32(textblood->Substring(sizeboshp - i - 1, 1));
+				bossblood = numblood[i];//boss攻擊力
+			}
+			
+			//int ked = rand() % Skill + 10;//ked技能傷害
+			if (tinder == 1) {
+				int ked = rand() % 50 + 10;//ked技能傷害
+				int rd = rand() % 4;
+				std::string str = king[1][rd];
+				String^ str2 = gcnew String(str.c_str());
+				listBox1->Items->Add("\r\n帥隆使用"+ str2 + ked+"傷害");
+				lifeboss -= ked;
+			}
+			else
+			{
+				listBox1->Text += "\r\nerror";
+				textBox34->Text += "\r\nerror";
+			}
+		*/
+		
+
+		}
+
+
+	
 }
-};
-}
+; }
