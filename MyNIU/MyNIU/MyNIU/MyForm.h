@@ -13,27 +13,27 @@ int boss_hp, boss_def, boss_att, boss_iq;
 int player_hp, player_def, player_att, player_iq;
 int layer = 0;
 
-std::string boss_name[6] = { "微笑殺手","正妹汶娟老師","無信德","Python小彭","心碎小子","賴賴"};
+std::string boss_name[6] = { "微笑殺手","正妹汶涓老師","無信德","Python小彭","心碎小子","武淵堂堂主"};
 int boss_levv[6] = {2,5,10,15,20,25};
-int boss_hpp[6] = {600,800,1000,1200,1400,1800};
-int boss_attt[6] = {60,80,100,120,140,130};
-int boss_deff[6] = {50,70,90.110,120,100};
-int boss_iqq[6] = { 20,60,80,100,120,100};
+int boss_hpp[6] = {1000,1300,1200,1600,1400,1800};
+int boss_attt[6] = {60,40,100,120,140,130};
+int boss_deff[6] = {50,30,90.110,120,100};
+int boss_iqq[6] = { 50,180,120,140,120,200};
 //int lifemyself,lifeboss, bossblood;
-//[0]吳信德老師招式
+//[0陳瑞福招式
 //[1]吳汶捐老師招式
 //[2]彭老師招式
-//[3]陳翊文
-//[4]朱志明老師招式
-//[5]朱志明老師招式
+//[3]吳姓德招式
+//[4]陳藝文招式
+//[5]武偵一招式
 
 std::string boss_skill[6][5] = {
 	{"殺球","點名","把你當掉","講故事","看球賽"},
-	{"zuvio點名","zuvio上傳練習畫面","教coffee(柴柴)握手好乖","coffee(柴柴)咬他","帶coffee(柴柴)散步"},//改
+	{"zuvio點名","zuvio上傳練習畫面","教coffee(柴柴)握手好乖","coffee(柴柴)咬他","帶coffee(柴柴)散步"},
 	{"什麼都沒做","什麼都沒做","什麼都沒做","什麼都沒做","什麼都沒做"},
 	{"去接女兒","抓你抄襲","把你當掉","今天的人怎麼這麼少","你寫的程式碼很爛"},
 	{"我要錄影","叫舍監來","嘔......","我想跟妹子聊天","電玩成影"},
-	{"洗碗攻擊","性別憑拳","洗衣服","掃地","女權自助餐"}
+	{"小迷酒","性別憑拳","番剁羅權","洗碗","女權自助餐"}
 };
 //[0]帥隆
 //[1]帥郭
@@ -486,7 +486,7 @@ private: System::Windows::Forms::PictureBox^ pictureBox9;
 			this->tableLayoutPanel1->Controls->Add(this->button3, 2, 2);
 			this->tableLayoutPanel1->Controls->Add(this->button4, 3, 2);
 			this->tableLayoutPanel1->Controls->Add(this->label4, 0, 1);
-			this->tableLayoutPanel1->Location = System::Drawing::Point(33, 88);
+			this->tableLayoutPanel1->Location = System::Drawing::Point(62, 88);
 			this->tableLayoutPanel1->Name = L"tableLayoutPanel1";
 			this->tableLayoutPanel1->RowCount = 3;
 			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
@@ -977,7 +977,7 @@ private: System::Windows::Forms::PictureBox^ pictureBox9;
 			this->button8->Font = (gcnew System::Drawing::Font(L"新細明體", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(136)));
 			this->button8->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->button8->Location = System::Drawing::Point(-1006, 13943);
+			this->button8->Location = System::Drawing::Point(-1062, 14566);
 			this->button8->Name = L"button8";
 			this->button8->Size = System::Drawing::Size(126, 51);
 			this->button8->TabIndex = 23;
@@ -992,7 +992,7 @@ private: System::Windows::Forms::PictureBox^ pictureBox9;
 			this->button9->Font = (gcnew System::Drawing::Font(L"新細明體", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(136)));
 			this->button9->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->button9->Location = System::Drawing::Point(-856, 13943);
+			this->button9->Location = System::Drawing::Point(-912, 14566);
 			this->button9->Name = L"button9";
 			this->button9->Size = System::Drawing::Size(91, 51);
 			this->button9->TabIndex = 24;
@@ -1124,7 +1124,7 @@ private: System::Windows::Forms::PictureBox^ pictureBox9;
 			this->tableLayoutPanel2->Controls->Add(this->textBox30, 2, 4);
 			this->tableLayoutPanel2->Controls->Add(this->textBox31, 2, 5);
 			this->tableLayoutPanel2->Controls->Add(this->textBox32, 2, 6);
-			this->tableLayoutPanel2->Location = System::Drawing::Point(95, 56);
+			this->tableLayoutPanel2->Location = System::Drawing::Point(97, 56);
 			this->tableLayoutPanel2->Name = L"tableLayoutPanel2";
 			this->tableLayoutPanel2->RowCount = 7;
 			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 20.3125F)));
@@ -1384,7 +1384,7 @@ private: System::Windows::Forms::PictureBox^ pictureBox9;
 			this->textBox33->Font = (gcnew System::Drawing::Font(L"新細明體", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(136)));
 			this->textBox33->ForeColor = System::Drawing::SystemColors::MenuBar;
-			this->textBox33->Location = System::Drawing::Point(-620, 9527);
+			this->textBox33->Location = System::Drawing::Point(-676, 10150);
 			this->textBox33->Multiline = true;
 			this->textBox33->Name = L"textBox33";
 			this->textBox33->Size = System::Drawing::Size(734, 50);
@@ -1420,7 +1420,7 @@ private: System::Windows::Forms::PictureBox^ pictureBox9;
 			this->listBox1->ForeColor = System::Drawing::SystemColors::Window;
 			this->listBox1->FormattingEnabled = true;
 			this->listBox1->ItemHeight = 19;
-			this->listBox1->Items->AddRange(gcnew cli::array< System::Object^  >(1) { L"戰鬥紀錄：" });
+			this->listBox1->Items->AddRange(gcnew cli::array< System::Object^  >(1) { L"" });
 			this->listBox1->Location = System::Drawing::Point(123, 566);
 			this->listBox1->Name = L"listBox1";
 			this->listBox1->ScrollAlwaysVisible = true;
@@ -1507,16 +1507,14 @@ private: System::Windows::Forms::PictureBox^ pictureBox9;
 #pragma endregion
 
 private: System::Void pictureBox1_Click_1(System::Object^ sender, System::EventArgs^ e) {
-	//Random^ RandInt = gcnew Random();
-	//int x = rand();
-	int x = 0;//改
+	int x = rand();
 	if (x % 2) {
 		MessageBox::Show("恭喜確診88");
 		Application::Exit();
 	}
 	else
 	{
-		MessageBox::Show("陰莖");
+		MessageBox::Show("陰性");
 		label1->Visible = false;
 		tableLayoutPanel1->Visible = true;
 		label3->Visible = true;
@@ -1533,7 +1531,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	Role->Visible = true;
 	pictureBox7->Visible = true;
 	textBox2->Text = "帥隆";
-	textBox9->Text = "500";
+	textBox9->Text = "1000";
 	textBox10->Text = "50";
 	textBox11->Text = "50";
 	textBox12->Text = "40";
@@ -1545,7 +1543,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	button7->Visible = true;
 	pictureBox7->ImageLocation = "./image/6722.jpg";
 	yut = 1;
-	blood = 500;
+	blood = 1000;
 	attack = 50;
 	defend = 50;
 	iq = 40;
@@ -1560,7 +1558,7 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 	Role->Visible = true;
 	pictureBox7->Visible = true;
 	textBox2->Text = "帥廷";
-	textBox9->Text = "450";
+	textBox9->Text = "1000";
 	textBox10->Text = "50";
 	textBox11->Text = "40";
 	textBox12->Text = "50";
@@ -1572,7 +1570,7 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 	button7->Visible = true;
 	pictureBox7->ImageLocation = "./image/57390.jpg";
 	yut = 2;
-	blood = 450;
+	blood = 1000;
 	attack = 50;
 	defend = 40;
 	iq = 50;
@@ -1587,7 +1585,7 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 	Role->Visible = true;
 	pictureBox7->Visible = true;
 	textBox2->Text = "帥誠";
-	textBox9->Text = "500";
+	textBox9->Text = "1000";
 	textBox10->Text = "30";
 	textBox11->Text = "40";
 	textBox12->Text = "50";
@@ -1599,7 +1597,7 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 	button7->Visible = true;
 	pictureBox7->ImageLocation = "./image/S__114614276.jpg";
 	yut = 3;
-	blood = 500;
+	blood = 1000;
 	attack = 30;
 	defend = 40;
 	iq = 50;
@@ -1616,9 +1614,9 @@ private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e
 	pictureBox7->ImageLocation = "./image/43678.jpg";
 	yut = 4;
 	textBox2->Text = "帥泓";
-	textBox9->Text = "500";
+	textBox9->Text = "1000";
 	textBox10->Text = "50";
-	textBox11->Text = "30";
+	textBox11->Text = "60";
 	textBox12->Text = "50";
 	textBox13->Text = "0";
 	button10->Visible = true;
@@ -1626,9 +1624,9 @@ private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e
 	button5->Visible = true;
 	button6->Visible = true;
 	button7->Visible = true;
-	blood = 500;
+	blood = 1000;
 	attack = 50;
-	defend = 30;
+	defend = 60;
 	iq = 50;
 	textBox15->Visible = true;
 }
@@ -1646,9 +1644,9 @@ private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e
 	if (experiance_judge > level * 20) {
 		level += 1;
 		experiance_judge = 0;
-		blood += 15;
-		attack += 5;
-		defend += 5;
+		blood += 30;
+		attack += 10;
+		defend += 10;
 		iq += 10;
 		textBox9->Text = blood.ToString();//血量
 		textBox10->Text = attack.ToString(); //攻擊力
@@ -1669,13 +1667,12 @@ private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e
 	//讀書
 	Experience += 15;
 	experiance_judge += 15;
-	//listBox1->Items->Add("讀書成功！獲得了 15點經驗值");
 	if (experiance_judge > level * 20) {
 		level += 1;
 		experiance_judge = 0;
-		blood += 15;
-		attack += 5;
-		defend += 5;
+		blood += 30;
+		attack += 10;
+		defend += 10;
 		iq += 10;
 		textBox9->Text = blood.ToString();//血量
 		textBox10->Text = attack.ToString(); //攻擊力
@@ -1694,14 +1691,13 @@ private: System::Void button7_Click(System::Object^ sender, System::EventArgs^ e
 	//玩社團
 	Experience += 17;
 	experiance_judge += 17;
-	//->Items->Add("玩社團成功！獲得了 17點經驗值");
 	if (experiance_judge > level * 20) {
 		level += 1;
 		experiance_judge = 0;
-		blood += 15;
-		attack += 9999;//改
-		defend += 5;
-		iq += 10;
+		blood += 30;
+		attack += 10;
+		defend += 10;
+		iq += 5;
 		textBox9->Text = blood.ToString();//血量
 		textBox10->Text = attack.ToString(); //攻擊力
 		textBox12->Text = defend.ToString();//防禦力
@@ -1709,7 +1705,7 @@ private: System::Void button7_Click(System::Object^ sender, System::EventArgs^ e
 	}//升級
 	MAXHt += 19;
 	textBox15->Height = MAXHt;
-	textBox15->Text += "\r\n讀書成功！獲得了 17點經驗值";
+	textBox15->Text += "\r\n玩社團成功！獲得了 17點經驗值";
 
 	textBox8->Text = level.ToString();
 	textBox13->Text = Experience.ToString();
@@ -1728,6 +1724,7 @@ private: System::Void button10_Click(System::Object^ sender, System::EventArgs^ 
 private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void button10_Click_1(System::Object^ sender, System::EventArgs^ e) {
+	//我的腳色畫面
 	button13->Visible = false;
 	textBox28->Visible = false;
 	textBox29->Visible = false;
@@ -1746,6 +1743,7 @@ private: System::Void button10_Click_1(System::Object^ sender, System::EventArgs
 	listBox1->Visible = false;
 }
 private: System::Void button11_Click_1(System::Object^ sender, System::EventArgs^ e) {
+	//Boss畫面
 	listBox1->Visible = true;
 	listBox1->Items->Add("戰鬥紀錄：");
 	button13->Visible = true;
@@ -1996,7 +1994,6 @@ private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) 
 		MessageBox::Show(str2+"倒下了，玩家剩餘血量" + player_hp.ToString());
 		layer += 1;
 		if (layer == 1) {
-			//改
 			//吳汶涓
 			pictureBox8->ImageLocation = "./image/wenn.jpg";
 			MessageBox::Show("把你成績微分!!!");
@@ -2056,7 +2053,7 @@ private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) 
 		if (layer == 5) {
 			//put image here
 			pictureBox8->ImageLocation = "./image/7111.jpg";
-			MessageBox::Show("可以幫我找手機嗎?");
+			MessageBox::Show("要喝小米酒嗎?");
 			std::string str = boss_name[5];
 			String^ str2 = gcnew String(str.c_str());
 			textBox17->Text = str2;
